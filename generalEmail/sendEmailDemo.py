@@ -6,8 +6,6 @@ from email.mime.text import MIMEText
 from smtplib import SMTP
 
 """发送Html文本"""
-
-
 def make_mpa_msg():
     email = MIMEMultipart('alternative')
     text = MIMEText('hello world!\r\n', 'plain')
@@ -17,9 +15,7 @@ def make_mpa_msg():
     return email
 
 
-"""发送图片 参数为图片"""
-
-
+"""发送图片 参数为图片的路劲"""
 def make_img_msg(fn):
     f = open(fn, 'r')
     data = f.read()
@@ -30,8 +26,6 @@ def make_img_msg(fn):
 
 
 """发送一个消息  参数1为原地址 参数2为目标地址 参数3为要发送的消息"""
-
-
 def sendMsg(fr, to, msg):
     s = SMTP('localhost')
     errs = s.sendmail(fr, to, msg)
